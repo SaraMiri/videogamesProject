@@ -12,6 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/d1e7beaa21.js" crossorigin="anonymous"></script>
         <title>Videojuegos accesibles y LGTBI</title>
     </head>
     <body>
@@ -22,54 +23,31 @@
         %>
         <div class="container mt-5">
             <h1>Catálogo de videojuegos accesibles y LGTBI</h1>
-            <div class="row">
-                <div class="col-sm">
-                    <form action="index.jsp" method="post">
-                        <div class="form-group">
-                            <label for="name">Introduce tu nombre</label>
-                            <input type="text" class="form-control" name="name" aria-describedby="name" placeholder="Introduce tu nombre">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Introduce tu email</label>
-                            <input type="email" class="form-control" name="email" aria-describedby="email" placeholder="Introduce tu email">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </form>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm">
-                    <div class="alert alert-primary" role="alert">
-                        <%                    
-                            String name = request.getParameter("name");
-                            String email = request.getParameter("email");
-                            if (name != null & email != null) {
-                                String greetings = "Hola " + name + ". Tu email es " + email;
-                                out.print(greetings);
-                            } else {
-                                out.print("Introduce tus datos para continuar.");
-                            }
-                        %>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
-                    <table class="table table-striped">
+                     <table class="table table-striped">
                         <thead>
+                            <tr>
+                                <th scope="col" colspan="4" class="text-center"><h3>Empleados</h3></th>
+                                <th scope="col" >
+                                    <a href="create.jsp"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+                                </th>
+                                
+                            </tr>
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Compañía</th>
-                                <th scope="col">Año de publicación</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <%        
+                            <%
                                 try {
-                                    
+
                                     Class.forName("com.mysql.jdbc.Driver");
                                     con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
                                     st = con.createStatement();
@@ -81,6 +59,10 @@
                                 <td><%= rs.getString(2)%></td>
                                 <td><%= rs.getString(3)%></td>
                                 <td><%= rs.getString(4)%></td>
+                                <td>
+                                    <a href="edit.jsp?id=<%= rs.getString(1)%>&nombre=<%= rs.getString(2)%>&empresa=<%= rs.getString(3)%>&fecha=<%= rs.getString(4)%>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </td>
                             </tr> 
                             <%
                                     }
