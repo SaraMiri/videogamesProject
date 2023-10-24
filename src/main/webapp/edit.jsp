@@ -42,6 +42,7 @@
                         </div>
                         <a href="index.jsp" class="btn btn-danger">Cancelar <i class="fa fa-ban" aria-hidden="true"></i></a>
                         <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                        <!-- Añadir mensaje de tu cambio se ha añadido o no -->
                         <input type="hidden" name="id" value="<%= id%>" >
                     </form>
 

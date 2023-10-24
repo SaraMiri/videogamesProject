@@ -22,7 +22,7 @@
             ResultSet rs = null;
         %>
         <div class="container mt-5">
-            <h1>Catálogo de videojuegos accesibles y LGTBI</h1>
+            <h1 class="text-center">Catálogo de videojuegos accesibles y LGTBI</h1>
         </div>
         <div class="container mt-5">
             <div class="row">
@@ -30,9 +30,9 @@
                      <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col" colspan="4" class="text-center"><h3>Empleados</h3></th>
-                                <th scope="col" >
-                                    <a href="create.jsp"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+                                <th scope="col" colspan="4" class="text-center"><h3>Videojuegos</h3></th>
+                                <th scope="col" style="padding-left: 24px;">
+                                    <a href="create.jsp"><i class="fa fa-plus" aria-hidden="true"></i></a>
                                 </th>
                                 
                             </tr>

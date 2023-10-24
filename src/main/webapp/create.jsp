@@ -36,9 +36,9 @@
         </div>
         <%
             if (request.getParameter("enviar") != null) {
-                String nombre = request.getParameter("nombre");
-                String empresa = request.getParameter("empresa");
-                String fecha = request.getParameter("fecha");
+                String name = request.getParameter("nombre");
+                String company = request.getParameter("empresa");
+                String year = request.getParameter("fecha");
 
                 try {
                     Connection con=null;
@@ -47,7 +47,7 @@
                     Class.forName("com.mysql.jdbc.Driver");
                     con=DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
                     st=con.createStatement();
-                    st.executeUpdate("insert into videojuegos (nombre,empresa,fecha) values('"+nombre+"','"+empresa+"','"+fecha+"');");
+                    st.executeUpdate("insert into videojuegos (nombre,empresa,fecha) values('"+name+"','"+company+"','"+year+"');");
                     //request.getRequestDispatcher("index.jsp").forward(request, response);
                     response.sendRedirect("index.jsp");
                 } catch (Exception e) {
