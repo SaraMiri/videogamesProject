@@ -17,6 +17,10 @@
     </head>
     <body>
         <%
+              HttpSession sesion=request.getSession();
+            if( sesion.getAttribute("logueado")==null ||  sesion.getAttribute("logueado").equals("0") ){
+                response.sendRedirect("login.jsp");
+            }
             Connection con = null;
             Statement st = null;
             ResultSet rs = null;
@@ -27,14 +31,14 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
-                     <table class="table table-striped">
+                    <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th scope="col" colspan="4" class="text-center"><h3>Videojuegos</h3></th>
                                 <th scope="col" style="padding-left: 24px;">
                                     <a href="create.jsp"><i class="fa fa-plus" aria-hidden="true"></i></a>
                                 </th>
-                                
+
                             </tr>
                             <tr>
                                 <th scope="col">ID</th>
@@ -61,7 +65,7 @@
                                 <td><%= rs.getString(4)%></td>
                                 <td>
                                     <a href="edit.jsp?id=<%= rs.getString(1)%>&nombre=<%= rs.getString(2)%>&empresa=<%= rs.getString(3)%>&fecha=<%= rs.getString(4)%>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                    <a href="delete.jsp?id=<%= rs.getString(1)%>" class="ml-1"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                 </td>
                             </tr> 
                             <%
