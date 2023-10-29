@@ -57,7 +57,7 @@
                                 st = con.createStatement();
                                 st.executeUpdate("update videojuegos set nombre='" + name + "',empresa='" + company + "',fecha='" + year + "' where id='" + id + "';");
                                 //request.getRequestDispatcher("index.jsp").forward(request, response);
-                                out.print(" <div class=\"alert alert-success\" role=\"alert\"> Registro modificado correctamente </div>");
+                                out.print(" <div class=\"alert alert-success mt-2\" role=\"alert\"> Registro modificado correctamente </div>");
                             } catch (Exception e) {
                                 out.print(e);
                             }

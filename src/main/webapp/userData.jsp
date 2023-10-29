@@ -4,6 +4,7 @@
     Author     : saram
 --%>
 <%@page import="java.math.BigInteger"%>
+<%@page import="Utils.passwordEncription" %>
 <%@page import="java.security.MessageDigest"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -23,6 +24,7 @@
             }
             Connection con = null;
             Statement st = null;
+            passwordEncription encript = new passwordEncription();
         %>
         <div class="container mt-5">
             <div class="row">
@@ -33,22 +35,24 @@
                             <label >Usuario</label>
                             <input type="text" class="form-control" name="user" placeholder="user" value="<%= sesion.getAttribute("user")%>" >
                         </div>
-                        <div class="form-group">
-                            <label >Cambiar contraseña</label>
-                            <input type="text" class="form-control" name="password1" placeholder="password">
+                        <label>Cambiar contraseña</label>
+                        <div class="input-group mb-3">
+                            <input type="password" id = "password" class="form-control" name="password1" placeholder="Contraseña">
+                            <div class="input-group-append">
+                                <button id= "hide-password" class="btn btn-outline-secondary" onclick="showPassword('password','hide-password')" type="button">Mostrar</button>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label >Repita su contraseña</label>
-                            <input type="text" class="form-control" name="repeatpassword" placeholder="Repita su password">
+                        <label >Repita su contraseña</label> 
+                        <div class="input-group mb-3">
+                            <input type="password" id = "passwordRepeat" class="form-control" name="repeatpassword" placeholder="Repita su contraseña">
+                            <button id= "hide-password2" class="btn btn-outline-secondary" onclick="showPassword('passwordRepeat','hide-password2')" type="button">Mostrar</button>
                         </div>
                         <button type="submit" name="guardar" class="btn btn-primary">Guardar</button>
                         <a href="index.jsp" class="btn btn-danger">Cancelar</a>
                     </form>
                 </div>
             </div>
-        </div>
-    </body>
-    <%
+                        <%
         if (request.getParameter("guardar") != null) {
             String user = request.getParameter("user");
             String password1 = request.getParameter("password1");
@@ -58,31 +62,30 @@
                     Class.forName("com.mysql.jdbc.Driver");
                     con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
                     st = con.createStatement();
-                    st.executeUpdate("update user set user='" + user + "',password='" + getMD5(password1) + "' where id='" + sesion.getAttribute("id") + "';");
+                    st.executeUpdate("update user set user='" + user + "',password='" + encript.getMD5(password1) + "' where id='" + sesion.getAttribute("id") + "';");
                     sesion.setAttribute("user", user);
                     response.sendRedirect("index.jsp");
                 } catch (Exception e) {
                     out.print(e);
                 }
             } else {
-                out.print("Las contraseñas no coinciden");
+                out.print(" <div class=\"alert alert-danger mt-2\" role=\"alert\"> Las contraseñas no coinciden. </div>");
             }
         }
     %>
-</html>
-<%!
-    public String getMD5(String input) {
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] encBytes = md.digest(input.getBytes());
-            BigInteger numero = new BigInteger(1, encBytes);
-            String encString = numero.toString(16);
-            while (encString.length() < 32) {
-                encString = "0" + encString;
+        </div>
+    </body>
+    <script>
+        function showPassword(id,buttonId) {
+            var x = document.getElementById(id);
+            var buttonHide = document.getElementById(buttonId);
+            if (x.type === "password") {
+                x.type = "text";
+                buttonHide.innerText = 'Ocultar';
+            } else {
+                x.type = "password";
+                buttonHide.innerText = 'Mostrar';
             }
-            return encString;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
         }
-    }
-%>
+    </script>
+</html>

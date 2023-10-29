@@ -4,6 +4,7 @@
     Author     : saram
 --%>
 <%@page import="java.math.BigInteger"%>
+<%@page import="Utils.passwordEncription" %>
 <%@page import="java.security.MessageDigest"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,6 +35,7 @@
                         Connection con = null;
                         Statement st = null;
                         ResultSet rs = null;
+                        passwordEncription encript = new passwordEncription();
                         if (request.getParameter("login") != null) {
                             String user = request.getParameter("user");
                             String password = request.getParameter("password");
@@ -42,14 +44,14 @@
                                 Class.forName("com.mysql.jdbc.Driver");
                                 con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
                                 st = con.createStatement();
-                                rs = st.executeQuery(" SELECT * FROM `user` where user='" + user + "' and password='" + getMD5(password) + "'; ");
+                                rs = st.executeQuery(" SELECT * FROM `user` where user='" + user + "' and password='" + encript.getMD5(password) + "'; ");
                                 while (rs.next()) {
                                     sesion.setAttribute("logueado", "1");
                                     sesion.setAttribute("user", rs.getString("user"));
                                     sesion.setAttribute("id", rs.getString("id"));
                                     response.sendRedirect("index.jsp");
                                 }
-                                out.print(" <div class=\"alert alert-danger\" role=\"alert\"> Usuario incorrecto </div>");
+                                out.print(" <div class=\"alert alert-danger mt-2\" role=\"alert\"> Usuario incorrecto </div>");
                             } catch (Exception e) {
                             }
                         }
@@ -59,19 +61,3 @@
         </div>
     </body>
 </html>
-<%!
-    public String getMD5(String input) {
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] encBytes = md.digest(input.getBytes());
-            BigInteger numero = new BigInteger(1, encBytes);
-            String encString = numero.toString(16);
-            while (encString.length() < 32) {
-                encString = "0" + encString;
-            }
-            return encString;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-%>

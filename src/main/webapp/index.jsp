@@ -31,10 +31,10 @@
         <div class="container mt-5">
              <div class="container">
             <nav class="navbar navbar-light bg-light">
-                <a class="navbar-brand">Área de usuario</a>
+                <a class="navbar-brand"></a>
                 <form class="form-inline" action="logout.jsp">
-                    <a href="userData.jsp"><i class="fa fa-user-circle" aria-hidden="true"></i> <%= sesion.getAttribute("user")%></a>
-                    <button class="btn btn-outline-danger my-2 my-sm-0 ml-2" type="submit">Logout</button>
+                    <a href="userData.jsp" class = "px-2"><i class="fa fa-user-circle" aria-hidden="true"></i> <%= sesion.getAttribute("user")%></a>
+                    <button class="btn btn-danger my-2 my-sm-0 ml-2" type="submit">Logout</button>
                 </form>
             </nav>
             <div class="row mt-2">
@@ -42,7 +42,7 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col" colspan="4" class="text-center"><h3>Videojuegos</h3></th>
+                                <th scope="col" colspan="4" class="text-center"><h3>Videojuegos más recientes</h3></th>
                                 <th scope="col" style="padding-left: 24px;">
                                     <a href="create.jsp"><i class="fa fa-plus" aria-hidden="true"></i></a>
                                 </th>
