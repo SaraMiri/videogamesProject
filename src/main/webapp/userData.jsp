@@ -4,6 +4,7 @@
     Author     : saram
 --%>
 
+<%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,27 +15,57 @@
         <title>Usuario</title>
     </head>
     <body>
+        <%
+            HttpSession sesion = request.getSession();
+            if (sesion.getAttribute("logueado") == null || sesion.getAttribute("logueado").equals("0")) {
+                response.sendRedirect("login.jsp");
+            }
+            Connection con = null;
+            Statement st = null;
+        %>
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
 
-                    <form>
+                    <form action="userData.jsp" method="post">
                         <div class="form-group">
-                            <label >User</label>
-                            <input type="text" class="form-control" name="user" placeholder="user">
+                            <label >Usuario</label>
+                            <input type="text" class="form-control" name="user" placeholder="user" value="<%= sesion.getAttribute("user")%>" >
                         </div>
                         <div class="form-group">
-                            <label >Password</label>
+                            <label >Cambiar contraseña</label>
                             <input type="text" class="form-control" name="password1" placeholder="password">
                         </div>
                         <div class="form-group">
-                            <label >Respita su password</label>
-                            <input type="text" class="form-control" name="password2" placeholder="Repita su password">
+                            <label >Repita su contraseña</label>
+                            <input type="text" class="form-control" name="repeatpassword" placeholder="Repita su password">
                         </div>
                         <button type="submit" name="guardar" class="btn btn-primary">Guardar</button>
+                        <a href="index.jsp" class="btn btn-danger">Cancelar</a>
                     </form>
                 </div>
             </div>
         </div>
     </body>
+    <%
+        if (request.getParameter("guardar") != null) {
+            String user = request.getParameter("user");
+            String password1 = request.getParameter("password1");
+            String repeatpassword = request.getParameter("repeatpassword");
+            if (password1.equals(repeatpassword)) {
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
+                    st = con.createStatement();
+                    st.executeUpdate("update user set user='" + user + "',password='" + password1 + "' where id='" + sesion.getAttribute("id") + "';");
+                    sesion.setAttribute("user", user);
+                    response.sendRedirect("index.jsp");
+                } catch (Exception e) {
+                    out.print(e);
+                }
+            } else {
+                out.print("Las contraseñas no coinciden");
+            }
+        }
+    %>
 </html>

@@ -31,7 +31,7 @@
         <div class="container mt-5">
              <div class="container">
             <nav class="navbar navbar-light bg-light">
-                <a class="navbar-brand">Usuario</a>
+                <a class="navbar-brand">Área de usuario</a>
                 <form class="form-inline" action="logout.jsp">
                     <a href="userData.jsp"><i class="fa fa-user-circle" aria-hidden="true"></i> <%= sesion.getAttribute("user")%></a>
                     <button class="btn btn-outline-danger my-2 my-sm-0 ml-2" type="submit">Logout</button>
