@@ -10,7 +10,7 @@
         <script src="https://kit.fontawesome.com/d1e7beaa21.js" crossorigin="anonymous"></script>
         <title>Añadir videojuego al catálogo</title>
     </head>
-   <body>
+    <body>
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
@@ -28,6 +28,7 @@
                             <label for="fecha">Fecha publicación</label>
                             <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" required="required">
                         </div>
+                        <a href="index.jsp" class="btn btn-danger">Cancelar <i class="fa fa-ban" aria-hidden="true"></i></a>
                         <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                     </form>
 
@@ -41,13 +42,13 @@
                 String year = request.getParameter("fecha");
 
                 try {
-                    Connection con=null;
-                    Statement st=null;
-                    
+                    Connection con = null;
+                    Statement st = null;
+
                     Class.forName("com.mysql.jdbc.Driver");
-                    con=DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
-                    st=con.createStatement();
-                    st.executeUpdate("insert into videojuegos (nombre,empresa,fecha) values('"+name+"','"+company+"','"+year+"');");
+                    con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
+                    st = con.createStatement();
+                    st.executeUpdate("insert into videojuegos (nombre,empresa,fecha) values('" + name + "','" + company + "','" + year + "');");
                     //request.getRequestDispatcher("index.jsp").forward(request, response);
                     response.sendRedirect("index.jsp");
                 } catch (Exception e) {

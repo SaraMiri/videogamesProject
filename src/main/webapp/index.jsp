@@ -18,7 +18,7 @@
     <body>
         <%
               HttpSession sesion=request.getSession();
-            if( sesion.getAttribute("logueado")==null ||  sesion.getAttribute("logueado").equals("0") ){
+            if(sesion.getAttribute("logueado")==null ||  sesion.getAttribute("logueado").equals("0")){
                 response.sendRedirect("login.jsp");
             }
             Connection con = null;
@@ -29,7 +29,15 @@
             <h1 class="text-center">Catálogo de videojuegos accesibles y LGTBI</h1>
         </div>
         <div class="container mt-5">
-            <div class="row">
+             <div class="container">
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand">Usuario</a>
+                <form class="form-inline" action="logout.jsp">
+                    <a href="userData.jsp"><i class="fa fa-user-circle" aria-hidden="true"></i> <%= sesion.getAttribute("user")%></a>
+                    <button class="btn btn-outline-danger my-2 my-sm-0 ml-2" type="submit">Logout</button>
+                </form>
+            </nav>
+            <div class="row mt-2">
                 <div class="col-sm">
                     <table class="table table-striped">
                         <thead>

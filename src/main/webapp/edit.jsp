@@ -45,27 +45,27 @@
                         <!-- Añadir mensaje de tu cambio se ha añadido o no -->
                         <input type="hidden" name="id" value="<%= id%>" >
                     </form>
+                    <%
+                        if (request.getParameter("enviar") != null) {
 
+                            try {
+                                Connection con = null;
+                                Statement st = null;
+
+                                Class.forName("com.mysql.jdbc.Driver");
+                                con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
+                                st = con.createStatement();
+                                st.executeUpdate("update videojuegos set nombre='" + name + "',empresa='" + company + "',fecha='" + year + "' where id='" + id + "';");
+                                //request.getRequestDispatcher("index.jsp").forward(request, response);
+                                out.print(" <div class=\"alert alert-success\" role=\"alert\"> Registro modificado correctamente </div>");
+                            } catch (Exception e) {
+                                out.print(e);
+                            }
+
+                        }
+                    %>
                 </div>
             </div>
         </div>
-        <%
-            if (request.getParameter("enviar") != null) {
-
-                try {
-                    Connection con = null;
-                    Statement st = null;
-
-                    Class.forName("com.mysql.jdbc.Driver");
-                    con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
-                    st = con.createStatement();
-                    st.executeUpdate("update videojuegos set nombre='" + name + "',empresa='" + company + "',fecha='" + year + "' where id='"+id+"';");
-                    //request.getRequestDispatcher("index.jsp").forward(request, response);
-                } catch (Exception e) {
-                    out.print(e);
-                }
-
-            }
-        %>
     </body>
 </html>
