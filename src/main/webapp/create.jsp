@@ -28,7 +28,7 @@
                             <label for="fecha">Fecha publicación</label>
                             <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" required="required">
                         </div>
-                        <a href="index.jsp" class="btn btn-danger">Cancelar <i class="fa fa-ban" aria-hidden="true"></i></a>
+                        <a href="home.jsp" class="btn btn-danger">Cancelar <i class="fa fa-ban" aria-hidden="true"></i></a>
                         <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                     </form>
 
@@ -49,8 +49,7 @@
                     con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
                     st = con.createStatement();
                     st.executeUpdate("insert into videojuegos (nombre,empresa,fecha) values('" + name + "','" + company + "','" + year + "');");
-                    //request.getRequestDispatcher("index.jsp").forward(request, response);
-                    response.sendRedirect("index.jsp");
+                    response.sendRedirect("home.jsp");
                 } catch (Exception e) {
                     out.print(e);
                 }

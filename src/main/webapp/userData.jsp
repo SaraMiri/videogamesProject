@@ -20,7 +20,7 @@
         <%
             HttpSession sesion = request.getSession();
             if (sesion.getAttribute("logueado") == null || sesion.getAttribute("logueado").equals("0")) {
-                response.sendRedirect("login.jsp");
+                response.sendRedirect("home.jsp");
             }
             Connection con = null;
             Statement st = null;
@@ -48,7 +48,7 @@
                             <button id= "hide-password2" class="btn btn-outline-secondary" onclick="showPassword('passwordRepeat','hide-password2')" type="button">Mostrar</button>
                         </div>
                         <button type="submit" name="guardar" class="btn btn-primary">Guardar</button>
-                        <a href="index.jsp" class="btn btn-danger">Cancelar</a>
+                        <a href="home.jsp" class="btn btn-danger">Cancelar</a>
                     </form>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                     st = con.createStatement();
                     st.executeUpdate("update user set user='" + user + "',password='" + encript.getMD5(password1) + "' where id='" + sesion.getAttribute("id") + "';");
                     sesion.setAttribute("user", user);
-                    response.sendRedirect("index.jsp");
+                    response.sendRedirect("home.jsp");
                 } catch (Exception e) {
                     out.print(e);
                 }

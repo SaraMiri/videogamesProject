@@ -22,7 +22,7 @@
                 con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
                 st = con.createStatement();
                 st.executeUpdate("delete FROM videojuegos where id='"+request.getParameter("id") +"';");
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.getRequestDispatcher("home.jsp").forward(request, response);
             } catch (Exception e) {
                 out.print(e);
             }

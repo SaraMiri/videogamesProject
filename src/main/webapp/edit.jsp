@@ -40,7 +40,7 @@
                             <label for="fecha">Telefono</label>
                             <input type="text" class="form-control" id="fecha"  value="<%= year%>"  name="fecha" placeholder="Fecha" required="required">
                         </div>
-                        <a href="index.jsp" class="btn btn-danger">Cancelar <i class="fa fa-ban" aria-hidden="true"></i></a>
+                        <a href="home.jsp" class="btn btn-danger">Cancelar <i class="fa fa-ban" aria-hidden="true"></i></a>
                         <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                         <!-- Añadir mensaje de tu cambio se ha añadido o no -->
                         <input type="hidden" name="id" value="<%= id%>" >
@@ -51,12 +51,10 @@
                             try {
                                 Connection con = null;
                                 Statement st = null;
-
                                 Class.forName("com.mysql.jdbc.Driver");
                                 con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
                                 st = con.createStatement();
                                 st.executeUpdate("update videojuegos set nombre='" + name + "',empresa='" + company + "',fecha='" + year + "' where id='" + id + "';");
-                                //request.getRequestDispatcher("index.jsp").forward(request, response);
                                 out.print(" <div class=\"alert alert-success mt-2\" role=\"alert\"> Registro modificado correctamente </div>");
                             } catch (Exception e) {
                                 out.print(e);
