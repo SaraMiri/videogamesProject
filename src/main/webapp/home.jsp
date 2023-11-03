@@ -31,7 +31,7 @@
                         <form action="home.jsp" method="get">
                             <table class="table table-striped">
                                 <thead>
-                                    <tr>
+                                    <tr class="text-center">
                                         <th scope="col" class="text-center"></th>
                                         <th scope="col" class="text-center">
                                             <input type="text" name="nombre" class="form-control" placeholder="Buscar por nombre"/>
@@ -40,16 +40,18 @@
                                             <input type="submit" value="Buscar" name="buscar" class="form-control btn btn-primary" />
                                         </th>
                                         <th></th>
-                                        <th scope="col" >
+                                        <th></th>
+                                        <th scope="col"  >
                                             <a href="create.jsp"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
                                         </th>
                                     </tr>
                                     <tr>
                                         <th scope="col">ID</th>
                                         <th scope="col">Nombre</th>
-                                        <th scope="col">Direccion</th>
-                                        <th scope="col">Telefono</th>
-                                        <th scope="col">Acciones</th>
+                                        <th scope="col">Empresa</th>
+                                        <th scope="col">Año</th>
+                                        <th scope="col" class="text-center">Accesible</th>
+                                        <th scope="col"class="text-center">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>

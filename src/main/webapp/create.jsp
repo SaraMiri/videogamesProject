@@ -28,6 +28,13 @@
                             <label for="fecha">Fecha publicación</label>
                             <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" required="required">
                         </div>
+                        <div class="form-group">
+                            <label for="accesible">Indica si el juego es accesible o no</label>                   
+                            <select id="accesible" name="accesible" required="required">
+                                <option value= 1 >Cumple requisitos de accesibilidad</option>
+                                <option value= 0 >No cumple requisitos de accesibilidad</option>
+                            </select>
+                        </div>
                         <a href="home.jsp" class="btn btn-danger">Cancelar <i class="fa fa-ban" aria-hidden="true"></i></a>
                         <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                     </form>
@@ -40,7 +47,7 @@
                 String name = request.getParameter("nombre");
                 String company = request.getParameter("empresa");
                 String year = request.getParameter("fecha");
-
+                String accesible = request.getParameter("accesible");
                 try {
                     Connection con = null;
                     Statement st = null;
@@ -48,7 +55,7 @@
                     Class.forName("com.mysql.jdbc.Driver");
                     con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
                     st = con.createStatement();
-                    st.executeUpdate("insert into videojuegos (nombre,empresa,fecha) values('" + name + "','" + company + "','" + year + "');");
+                    st.executeUpdate("insert into videojuegos (nombre,empresa,fecha,accesible) values('" + name + "','" + company + "','" + year + "','" + accesible + "' );");
                     response.sendRedirect("home.jsp");
                 } catch (Exception e) {
                     out.print(e);

@@ -21,7 +21,8 @@
             String name = request.getParameter("nombre");
             String company = request.getParameter("empresa");
             String year = request.getParameter("fecha");
-
+            String accesible = request.getParameter("accesible");
+            boolean bool = Boolean.parseBoolean(accesible);
         %>
         <div class="container mt-5">
             <div class="row">
@@ -33,12 +34,19 @@
                             <input type="text" class="form-control" id="nombre" value="<%= name%>" name="nombre" placeholder="Nombre" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="empresa">Direccion</label>
+                            <label for="empresa">Empresa</label>
                             <input type="text" class="form-control" id="empresa" value="<%= company%>"  name="empresa" placeholder="Empresa" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="fecha">Telefono</label>
+                            <label for="fecha">Año</label>
                             <input type="text" class="form-control" id="fecha"  value="<%= year%>"  name="fecha" placeholder="Fecha" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label for="accesible">Indica si el juego es accesible o no</label>                   
+                            <select id="accesible" name="accesible" required="required" value="<%= bool%>">
+                                <option value= 1 >Cumple requisitos de accesibilidad</option>
+                                <option selected value= 0 >No cumple requisitos de accesibilidad</option>
+                            </select>
                         </div>
                         <a href="home.jsp" class="btn btn-danger">Cancelar <i class="fa fa-ban" aria-hidden="true"></i></a>
                         <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
@@ -54,7 +62,7 @@
                                 Class.forName("com.mysql.jdbc.Driver");
                                 con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
                                 st = con.createStatement();
-                                st.executeUpdate("update videojuegos set nombre='" + name + "',empresa='" + company + "',fecha='" + year + "' where id='" + id + "';");
+                                st.executeUpdate("update videojuegos set nombre='" + name + "',empresa='" + company + "',fecha='" + year + "',accesible='" + accesible + "' where id='" + id + "';");
                                 out.print(" <div class=\"alert alert-success mt-2\" role=\"alert\"> Registro modificado correctamente </div>");
                             } catch (Exception e) {
                                 out.print(e);
