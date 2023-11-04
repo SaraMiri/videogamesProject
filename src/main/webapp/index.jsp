@@ -21,6 +21,7 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
+                    <h2 class="text-center">Área de login</h2>
                     <form method="post" action="index.jsp" >
                         <div class="form-group">
                             <label>Usuario</label>

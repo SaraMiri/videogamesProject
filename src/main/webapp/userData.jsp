@@ -16,7 +16,7 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <title>Usuario</title>
     </head>
-    <body>
+    <body class="bg-light text-dark">
         <%
             HttpSession sesion = request.getSession();
             if (sesion.getAttribute("logueado") == null || sesion.getAttribute("logueado").equals("0")) {
@@ -29,7 +29,7 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
-
+                    <h2 class="text-center">Formulario de cambio de contraseña</h2>
                     <form action="userData.jsp" method="post">
                         <div class="form-group">
                             <label >Usuario</label>

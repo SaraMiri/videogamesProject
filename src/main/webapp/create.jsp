@@ -10,7 +10,9 @@
         <script src="https://kit.fontawesome.com/d1e7beaa21.js" crossorigin="anonymous"></script>
         <title>Añadir videojuego al catálogo</title>
     </head>
-    <body>
+    <body class="bg-image text-white" 
+          style="background-image: url('https://www.cleanlink.com/resources/editorial/2022/28810-gaming-sstock-1925516489.jpg');
+          height: 100vh">
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
@@ -35,6 +37,13 @@
                                 <option value= 0 >No cumple requisitos de accesibilidad</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="accesible">Indica si el juego es LGTBI o no</label>                   
+                            <select id="LGTBI" name="LGTBI" required="required">
+                                <option value= 0 >No incluye personajes LGTBI</option>
+                                <option value= 1 selected>Sí incluye personajes LGTBI</option>
+                            </select>
+                        </div>
                         <a href="home.jsp" class="btn btn-danger">Cancelar <i class="fa fa-ban" aria-hidden="true"></i></a>
                         <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                     </form>
@@ -48,6 +57,7 @@
                 String company = request.getParameter("empresa");
                 String year = request.getParameter("fecha");
                 String accesible = request.getParameter("accesible");
+                String LGTBI = request.getParameter("LGTBI");
                 try {
                     Connection con = null;
                     Statement st = null;
@@ -55,7 +65,7 @@
                     Class.forName("com.mysql.jdbc.Driver");
                     con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
                     st = con.createStatement();
-                    st.executeUpdate("insert into videojuegos (nombre,empresa,fecha,accesible) values('" + name + "','" + company + "','" + year + "','" + accesible + "' );");
+                    st.executeUpdate("insert into videojuegos (nombre,empresa,fecha,accesible,LGTBI) values('" + name + "','" + company + "','" + year + "','" + accesible + "','" + LGTBI + "' );");
                     response.sendRedirect("home.jsp");
                 } catch (Exception e) {
                     out.print(e);

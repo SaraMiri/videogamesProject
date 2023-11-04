@@ -12,24 +12,25 @@
         <script src="https://kit.fontawesome.com/d1e7beaa21.js" crossorigin="anonymous"></script>
         <title>Videojuegos accesibles y LGTBI</title>
     </head>
-    <body>
-
+    <body class="bg-image text-white" 
+          style="background-image: url('https://www.cleanlink.com/resources/editorial/2022/28810-gaming-sstock-1925516489.jpg');
+          height: 100vh" >
         <div class="container mt-5">
             <h1 class="text-center">Catálogo de videojuegos accesibles y LGTBI</h1>
         </div>
         <div class="container mt-5">
             <div class="container">
-                <nav class="navbar navbar-light bg-light">
+                <nav class="navbar navbar-light bg-light rounded">
                     <a class="navbar-brand"></a>
                     <form class="form-inline" action="logout.jsp">
                         <a href="userData.jsp"><i class="fa fa-user-circle" aria-hidden="true"></i> </a>
                         <button class="btn btn-danger my-2 my-sm-0 ml-2" type="submit">Logout</button>
                     </form>
                 </nav>
-                <div class="row mt-2">
+                <div class="row mt-2 ">
                     <div class="col-sm">
                         <form action="home.jsp" method="get">
-                            <table class="table table-striped">
+                            <table id= "videogames" class="table table-striped bg-light rounded">
                                 <thead>
                                     <tr class="text-center">
                                         <th scope="col" class="text-center"></th>
@@ -41,8 +42,9 @@
                                         </th>
                                         <th></th>
                                         <th></th>
+                                        <th></th>
                                         <th scope="col"  >
-                                            <a href="create.jsp"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+                                            <a href="create.jsp"><i class="fa-solid fa-plus"></i></a>
                                         </th>
                                     </tr>
                                     <tr>
@@ -51,6 +53,7 @@
                                         <th scope="col">Empresa</th>
                                         <th scope="col">Año</th>
                                         <th scope="col" class="text-center">Accesible</th>
+                                        <th scope="col" class="text-center">LGTBI</th>
                                         <th scope="col"class="text-center">Acciones</th>
                                     </tr>
                                 </thead>
@@ -58,10 +61,11 @@
                                     <jsp:include page="Videojuegos"/>
                                 </tbody>
                             </table>
+
                         </form>
 
                     </div>
-                </div>
+                </div>                    
             </div>
     </body>
 </html>
