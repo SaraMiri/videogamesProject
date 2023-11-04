@@ -17,7 +17,7 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <title>Login</title>
     </head>
-    <body>
+    <body class="bg-light text-dark">
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
@@ -35,6 +35,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary" name="login" >Login</button>
+                        <a href="register.jsp" class="btn btn-primary">Ir a formulario de registro</a>
                     </form>
                     <%
                         Connection con = null;
@@ -66,7 +67,7 @@
             </div>
         </div>
     </body>
-    
+
     <script>
         function showPassword() {
             var x = document.getElementById('password');

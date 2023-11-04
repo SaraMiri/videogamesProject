@@ -44,7 +44,7 @@
                                         <th></th>
                                         <th></th>
                                         <th scope="col"  >
-                                            <a href="create.jsp"><i class="fa-solid fa-plus"></i></a>
+                                            <a href="create.jsp"><i class="fa-solid fa-plus" aria-hidden="true"></i></a>
                                         </th>
                                     </tr>
                                     <tr>
