@@ -11,7 +11,7 @@
         <script src="https://kit.fontawesome.com/d1e7beaa21.js" crossorigin="anonymous"></script>
         <title>Registro de usuario</title>
     </head>
-    <body class="bg-image text-black">
+    <body class="bg-light text-dark">
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
@@ -34,7 +34,7 @@
                             <button id= "hide-password2" class="btn btn-outline-secondary" onclick="showPassword('passwordRepeat', 'hide-password2')" type="button">Mostrar</button>
                         </div>
                         <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                        <a href="home.jsp" class="btn btn-danger">Cancelar <i class="fa fa-ban" aria-hidden="true"></i></a>
+                        <a href="index.jsp" class="btn btn-danger">Cancelar <i class="fa fa-ban" aria-hidden="true"></i></a>
                     </form>
 
                 </div>
@@ -55,7 +55,7 @@
                         con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
                         st = con.createStatement();
                         st.executeUpdate("insert into user (user, password) values('" + user + "','" + encript.getMD5(password) + "' );");
-                        response.sendRedirect("home.jsp");
+                        response.sendRedirect("index.jsp");
                     } catch (Exception e) {
                         out.print(e);
                     }

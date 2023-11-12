@@ -20,8 +20,10 @@
         </div>
         <div class="container mt-5">
             <div class="container">
-                <nav class="navbar navbar-light bg-light rounded">
-                    <a class="navbar-brand"></a>
+                <nav class="navbar navbar-light bg-light rounded" style="padding-left:0;">
+                      <form class="form-inline" action="requestGame.jsp">
+                        <button class="btn btn-primary my-2 my-sm-0 ml-2" type="submit">Solicitar videojuego <i class="fa-solid fa-gamepad"></i></button>
+                    </form>
                     <form class="form-inline" action="logout.jsp">
                         <a href="userData.jsp"><i class="fa fa-user-circle" aria-hidden="true"></i> </a>
                         <button class="btn btn-danger my-2 my-sm-0 ml-2" type="submit">Logout</button>
