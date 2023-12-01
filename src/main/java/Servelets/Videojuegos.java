@@ -16,6 +16,7 @@ import java.sql.*;
 import com.mysql.jdbc.Driver;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -43,7 +44,7 @@ public class Videojuegos extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
 
             try {
-
+                HttpSession sesion = request.getSession();
                 Class.forName("com.mysql.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
                 st = con.createStatement();
@@ -54,6 +55,7 @@ public class Videojuegos extends HttpServlet {
                     nombre = this.scape_string(nombre);
                     where = where + " and nombre LIKE'%" + nombre + "%'";
                 }
+                String admin = request.getParameter("admin");
                 query = query + where;
                 rs = st.executeQuery(query);
                 while (rs.next()) {
@@ -65,8 +67,10 @@ public class Videojuegos extends HttpServlet {
                             + "<td class=\"text-center\">" + rs.getBoolean(5) + "</td>"
                             + "<td class=\"text-center\">" + rs.getBoolean(6) + "</td>"
                             + "<td class=\"text-center\">"
-                            + "  <a href=\"edit.jsp?id=" + rs.getString(1) + "&nombre=" + rs.getString(2) + "&empresa=" + rs.getString(3) + "&fecha=" + rs.getString(4) + "&accesible=" + rs.getBoolean(5) + "&LGTBI=" + rs.getBoolean(6) +"\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></a>"
-                            + "  <a href=\"delete.jsp?id=" + rs.getString(1) + "\" class=\"ml-1\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></a>"
+                            +      (( sesion.getAttribute("admin").equals(true)) ?
+                                    "  <a href=\"edit.jsp?id=" + rs.getString(1) + "&nombre=" + rs.getString(2) + "&empresa=" + rs.getString(3) + "&fecha=" + rs.getString(4) + "&accesible=" + rs.getBoolean(5) + "&LGTBI=" + rs.getBoolean(6) + "&url=" + rs.getString(7) + "\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></a>"
+                                    + "  <a href=\"delete.jsp?id=" + rs.getString(1) + "\" class=\"ml-1\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></a>"
+                                    : "<a href="+rs.getString(7)+" target=\"_blank\"><i class=\"fa-solid fa-eye\" aria-hidden=\"true\"></i></a>")
                             + "</td>"
                             + "</tr>"
                     );

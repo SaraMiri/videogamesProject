@@ -24,6 +24,7 @@
             String company = request.getParameter("empresa");
             String year = request.getParameter("fecha");
             String accesible = request.getParameter("accesible");
+            String url = request.getParameter("url");
             boolean boolAccesible = Boolean.parseBoolean(accesible);
             String LGTBI = request.getParameter("LGTBI");
             boolean boolLGTBI = Boolean.parseBoolean(LGTBI);
@@ -44,6 +45,10 @@
                         <div class="form-group">
                             <label for="fecha">Año</label>
                             <input type="text" class="form-control" id="fecha"  value="<%= year%>"  name="fecha" placeholder="Fecha" required="required">
+                        </div>
+                          <div class="form-group">
+                            <label for="url">Url de la web</label>
+                            <input type="text" class="form-control" id="url"  value="<%= url%>"  name="url" placeholder="Url de la web">
                         </div>
                         <div class="form-group">
                             <label for="accesible">Indica si el juego es accesible o no</label>                   

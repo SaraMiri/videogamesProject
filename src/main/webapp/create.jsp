@@ -31,6 +31,10 @@
                             <input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" required="required">
                         </div>
                         <div class="form-group">
+                            <label for="url">Link a la web del videojuego</label>
+                            <input type="text" class="form-control" id="url" name="url" placeholder="Url de la web">
+                        </div>
+                        <div class="form-group">
                             <label for="accesible">Indica si el juego es accesible o no</label>                   
                             <select id="accesible" name="accesible" required="required">
                                 <option value= 1 >Cumple requisitos de accesibilidad</option>
@@ -56,6 +60,7 @@
                 String name = request.getParameter("nombre");
                 String company = request.getParameter("empresa");
                 String year = request.getParameter("fecha");
+                String url = request.getParameter("url");
                 String accesible = request.getParameter("accesible");
                 String LGTBI = request.getParameter("LGTBI");
                 try {
@@ -65,7 +70,7 @@
                     Class.forName("com.mysql.jdbc.Driver");
                     con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
                     st = con.createStatement();
-                    st.executeUpdate("insert into videojuegos (nombre,empresa,fecha,accesible,LGTBI) values('" + name + "','" + company + "','" + year + "','" + accesible + "','" + LGTBI + "' );");
+                    st.executeUpdate("insert into videojuegos (nombre,empresa,fecha,url,accesible,LGTBI) values('" + name + "','" + company + "','" + year + "','" + url + "','" + accesible + "','" + LGTBI + "' );");
                     response.sendRedirect("home.jsp");
                 } catch (Exception e) {
                     out.print(e);

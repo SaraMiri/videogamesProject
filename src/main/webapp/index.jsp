@@ -55,6 +55,7 @@
                                     sesion.setAttribute("logueado", "1");
                                     sesion.setAttribute("user", rs.getString("user"));
                                     sesion.setAttribute("id", rs.getString("id"));
+                                    sesion.setAttribute(("admin"), rs.getBoolean("admin"));
                                     response.sendRedirect("home.jsp");
                                 }
                                 out.print(" <div class=\"alert alert-danger mt-2\" role=\"alert\"> Usuario incorrecto </div>");
