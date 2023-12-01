@@ -15,6 +15,7 @@
     <body class="bg-image text-white" 
           style="background-image: url('https://www.cleanlink.com/resources/editorial/2022/28810-gaming-sstock-1925516489.jpg');
           height: 100vh" >
+        <% HttpSession sesion = request.getSession(); %>
         <div class="container mt-5">
             <h1 class="text-center">Catálogo de videojuegos accesibles y LGTBI</h1>
         </div>
@@ -45,9 +46,13 @@
                                         <th></th>
                                         <th></th>
                                         <th></th>
+      
+                                        <% if ( sesion.getAttribute("admin").equals(true)) { %>
                                         <th scope="col"  >
                                             <a href="create.jsp"><i class="fa-solid fa-plus" aria-hidden="true"></i></a>
                                         </th>
+                                        <% } else { %>
+                                        <% } %>
                                     </tr>
                                     <tr>
                                         <th scope="col">ID</th>
@@ -63,9 +68,7 @@
                                     <jsp:include page="Videojuegos"/>
                                 </tbody>
                             </table>
-
                         </form>
-
                     </div>
                 </div>                    
             </div>
