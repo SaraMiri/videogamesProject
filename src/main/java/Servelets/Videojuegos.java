@@ -70,7 +70,7 @@ public class Videojuegos extends HttpServlet {
                             +      (( sesion.getAttribute("admin").equals(true)) ?
                                     "  <a href=\"edit.jsp?id=" + rs.getString(1) + "&nombre=" + rs.getString(2) + "&empresa=" + rs.getString(3) + "&fecha=" + rs.getString(4) + "&accesible=" + rs.getBoolean(5) + "&LGTBI=" + rs.getBoolean(6) + "&url=" + rs.getString(7) + "\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></a>"
                                     + "  <a href=\"delete.jsp?id=" + rs.getString(1) + "\" class=\"ml-1\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></a>"
-                                    : "<a href="+rs.getString(7)+" target=\"_blank\"><i class=\"fa-solid fa-eye\" aria-hidden=\"true\"></i></a>")
+                                    : "<a href="+rs.getString(7)+" target=_blank><i class=\"fa-solid fa-eye\" aria-hidden=\"true\"></i></a>")
                             + "</td>"
                             + "</tr>"
                     );

@@ -17,7 +17,9 @@
           height: 100vh" >
         <% HttpSession sesion = request.getSession(); %>
         <div class="container mt-5">
-            <h1 class="text-center">Catálogo de videojuegos accesibles y LGTBI</h1>
+
+            <h1 class="text-center"> Inclusive Games: videojuegos accesibles y LGTBI</h1>
+              
         </div>
         <div class="container mt-5">
             <div class="container">

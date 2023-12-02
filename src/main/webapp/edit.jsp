@@ -78,7 +78,7 @@
                                 Class.forName("com.mysql.jdbc.Driver");
                                 con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
                                 st = con.createStatement();
-                                st.executeUpdate("update videojuegos set nombre='" + name + "',empresa='" + company + "',fecha='" + year + "',accesible='" + accesible + "',LGTBI='" + LGTBI + "' where id='" + id + "';");
+                                st.executeUpdate("update videojuegos set nombre='" + name + "',empresa='" + company+ "',url='" + url + "',fecha='" + year + "',accesible='" + accesible + "',LGTBI='" + LGTBI + "' where id='" + id + "';");
                                 out.print(" <div class=\"alert alert-success mt-2\" role=\"alert\"> Registro modificado correctamente </div>");
                             } catch (Exception e) {
                                 out.print(e);
