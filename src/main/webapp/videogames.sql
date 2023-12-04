@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-12-2023 a las 18:15:54
+-- Tiempo de generación: 04-12-2023 a las 13:26:58
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `videogames`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `noticias`
+--
+
+CREATE TABLE `noticias` (
+  `id` int(11) NOT NULL,
+  `titular` varchar(100) NOT NULL,
+  `contenido` varchar(10000) NOT NULL,
+  `fecha` date NOT NULL,
+  `accesible` tinyint(1) NOT NULL,
+  `LGTBI` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `noticias`
+--
+
+INSERT INTO `noticias` (`id`, `titular`, `contenido`, `fecha`, `accesible`, `LGTBI`) VALUES
+(1, 'sggdsóó', 'gdsgsgsdgóó', '2023-11-27', 0, 1),
+(2, 'fdhdfh', 'dhfdhd', '2023-12-04', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -99,6 +122,12 @@ INSERT INTO `videojuegos` (`id`, `nombre`, `empresa`, `fecha`, `accesible`, `LGT
 --
 
 --
+-- Indices de la tabla `noticias`
+--
+ALTER TABLE `noticias`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `solicitudes`
 --
 ALTER TABLE `solicitudes`
@@ -121,6 +150,12 @@ ALTER TABLE `videojuegos`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `noticias`
+--
+ALTER TABLE `noticias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `solicitudes`
 --
 ALTER TABLE `solicitudes`
@@ -136,7 +171,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `videojuegos`
 --
 ALTER TABLE `videojuegos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
