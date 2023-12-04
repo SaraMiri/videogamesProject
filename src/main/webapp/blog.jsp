@@ -1,32 +1,28 @@
 <%-- 
-    Document   : index
-    Created on : 13 oct. 2023, 14:42:36
+    Document   : blog
+    Created on : 4 dic. 2023, 11:07:43
     Author     : saram
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/d1e7beaa21.js" crossorigin="anonymous"></script>
-        <title>Videojuegos accesibles y LGTBI</title>
+        <title>Blog</title>
     </head>
     <body class="bg-image" 
           style="background-image: url('https://www.cleanlink.com/resources/editorial/2022/28810-gaming-sstock-1925516489.jpg');
           height: 100vh" >
-        <% HttpSession sesion = request.getSession(); %>
         <div class="container mt-5">
-            <h1 class="text-center text-white"> Inclusive Games: videojuegos accesibles y LGTBI</h1>
+            <h1 class="text-center text-white">Blog</h1>
         </div>
         <div class="container mt-5">
             <div class="container">
                 <nav class="navbar navbar-light bg-light rounded" style="padding-left:0;">
                     <form class="form-inline" action="requestGame.jsp">
-                        <button class="btn btn-primary my-2 my-sm-0 ml-2" type="submit">Solicitar videojuego <i class="fa fa-user-circle" aria-hidden="true"></i></button>
                         <button type="button" class="btn btn-outline-secondary ml-2" data-toggle="modal" data-target="#myModal">
                             Opciones de accesibilidad
                         </button>
@@ -65,7 +61,7 @@
                                     Reproducir audio:  &nbsp;<input type="checkbox">
                                 </div>
                                 <!-- Cierre del modal --> 
-                               <div class="modal-footer">
+                                <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                                 </div>
                             </div>
@@ -78,46 +74,40 @@
                 </nav>
                 <div class="row mt-2 ">
                     <div class="col-sm">
-                        <form action="home.jsp" method="get">
-                            <table id= "videogames" class="table table-striped bg-light rounded">
+                        <form action="blog.jsp" method="get">
+                            <table id= "noticias" class="table table-striped bg-light rounded">
                                 <thead>
                                     <tr class="text-center">
                                         <th scope="col" class="text-center"></th>
                                         <th scope="col" class="text-center">
-                                            <input type="text" name="nombre" class="form-control" placeholder="Buscar por nombre"/>
+                                            <input type="text" name="titular" class="form-control" placeholder="Buscar noticia"/>
                                         </th>
                                         <th scope="col" class="text-center">
                                             <input type="submit" value="Buscar" name="buscar" class="form-control btn btn-primary" />
                                         </th>
                                         <th></th>
                                         <th></th>
-                                        <th></th>
-                                        <% if (sesion.getAttribute("admin").equals(true)) { %>
                                         <th scope="col"  >
-                                              <a href="blog.jsp" target="_blank"><i class="fa-solid fa-blog" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i></a>
-                                            <a href="create.jsp"><i class="fa-solid fa-plus" aria-hidden="true"></i></a>
+                                            <a href="createBlog.jsp"><i class="fa-solid fa-plus" aria-hidden="true"></i></a>
                                         </th>
-                                        <% } else { %>
-                                        <% }%>
                                     </tr>
                                     <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Empresa</th>
-                                        <th scope="col">Año</th>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Titular</th>
+                                        <th scope="col" class="text-center">Fecha</th>
                                         <th scope="col" class="text-center">Accesible</th>
                                         <th scope="col" class="text-center">LGTBI</th>
                                         <th scope="col"class="text-center">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <jsp:include page="Videojuegos"/>
+                                    <jsp:include page="Noticias"/>
                                 </tbody>
                             </table>
                         </form>
                     </div>
                 </div>                    
             </div>
-        </div>
+        </div>   
     </body>
 </html>

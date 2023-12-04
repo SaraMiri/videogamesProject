@@ -1,9 +1,10 @@
 <%-- 
-    Document   : edit
-    Created on : 23 oct. 2023, 18:20:00
+    Document   : editBlog
+    Created on : 4 dic. 2023, 11:25:26
     Author     : saram
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.*"%>
 <%@page import="com.mysql.jdbc.Driver"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,18 +14,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <title>Editar videojuego</title>
+        <title>Editar noticia</title>
     </head>
     <body class="bg-image text-white" 
           style="background-image: url('https://www.cleanlink.com/resources/editorial/2022/28810-gaming-sstock-1925516489.jpg');
           height: 100vh">
         <%
             String id = request.getParameter("id");
-            String name = request.getParameter("nombre");
-            String company = request.getParameter("empresa");
-            String year = request.getParameter("fecha");
+            String title = request.getParameter("titular");
+            String content = request.getParameter("contenido");
+            String date = request.getParameter("fecha");
+          //  new SimpleDateFormat("dd-MM-yyyy").parse(date);
             String accesible = request.getParameter("accesible");
-            String url = request.getParameter("url");
             boolean boolAccesible = Boolean.parseBoolean(accesible);
             String LGTBI = request.getParameter("LGTBI");
             boolean boolLGTBI = Boolean.parseBoolean(LGTBI);
@@ -33,38 +34,34 @@
             <div class="row">
                 <div class="col-sm">
 
-                    <form action="edit.jsp" method="get">
+                    <form action="editBlog.jsp" method="get">
                         <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" value="<%= name%>" name="nombre" placeholder="Nombre" required="required">
+                            <label for="titular">Titular de la noticia</label>
+                            <input type="text" class="form-control" id="titular" value="<%= title%>" name="titular" placeholder="Titular" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="empresa">Empresa</label>
-                            <input type="text" class="form-control" id="empresa" value="<%= company%>"  name="empresa" placeholder="Empresa" required="required">
+                            <label for="contenido">Contenido</label>
+                            <textarea class="form-control" id="contenido" value="<%= content%>" name="contenido" placeholder="Contenido" required="required" rows="4" cols="50"><%= content%></textarea>
                         </div>
                         <div class="form-group">
                             <label for="fecha">Año</label>
-                            <input type="text" class="form-control" id="fecha"  value="<%= year%>"  name="fecha" placeholder="Fecha" required="required">
-                        </div>
-                          <div class="form-group">
-                            <label for="url">Url de la web</label>
-                            <input type="text" class="form-control" id="url"  value="<%= url%>"  name="url" placeholder="Url de la web">
+                            <input type="date" placeholder="YYYY-MM-DD" class="form-control" id="fecha"  value="<%= date%>"  name="fecha" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="accesible">Indica si el juego es accesible o no</label>                   
+                            <label for="accesible">Indica si tiene contenido sobre accesibilidad<</label>                   
                             <select id="accesible" name="accesible" required="required" value="<%= boolAccesible%>">
-                                <option value= 1 >Cumple requisitos de accesibilidad</option>
-                                <option selected value= 0 >No cumple requisitos de accesibilidad</option>
+                                <option value= 1 >Con contenido de accesibilidad</option>
+                                <option selected value= 0 >Sin contenido de accesibilidad</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="LGTBI">Indica si el juego tiene contenido LGTBI o no</label>                   
+                            <label for="LGTBI">Indica si tiene contenido LGTBIo</label>                   
                             <select id="LGTBI" name="LGTBI" required="required" value="<%= boolLGTBI%>">
-                                <option value= 0  >No incluye personajes LGTBI</option>
-                                <option value= 1 selected>Sí incluye personajes LGTBI</option>
+                                <option value= 0  >No incluye contenido LGTBI</option>
+                                <option value= 1 selected>Sí incluye contenido LGTBI</option>
                             </select>
                         </div>
-                        <a href="home.jsp" class="btn btn-danger">Cancelar <i class="fa fa-ban" aria-hidden="true"></i></a>
+                        <a href="blog.jsp" class="btn btn-danger">Cancelar <i class="fa fa-ban" aria-hidden="true"></i></a>
                         <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                         <!-- Añadir mensaje de tu cambio se ha añadido o no -->
                         <input type="hidden" name="id" value="<%= id%>" >
@@ -78,7 +75,7 @@
                                 Class.forName("com.mysql.jdbc.Driver");
                                 con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
                                 st = con.createStatement();
-                                st.executeUpdate("update videojuegos set nombre='" + name + "',empresa='" + company+ "',url='" + url + "',fecha='" + year + "',accesible='" + accesible + "',LGTBI='" + LGTBI + "' where id='" + id + "';");
+                                st.executeUpdate("update noticias set titular='" + title + "',contenido='" + content + "',fecha='" + date + "',accesible='" + accesible + "',LGTBI='" + LGTBI + "' where id='" + id + "';");
                                 out.print(" <div class=\"alert alert-success mt-2\" role=\"alert\"> Registro modificado correctamente </div>");
                             } catch (Exception e) {
                                 out.print(e);
