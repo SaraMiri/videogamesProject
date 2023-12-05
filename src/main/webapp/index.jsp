@@ -17,7 +17,7 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <title>Login</title>
     </head>
-    <body class="bg-light text-dark">
+    <body class="bg-light text-white" style="background-image: url('Images/mario-3788492_1920.png')">
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
@@ -30,8 +30,8 @@
                         <label>Contraseña</label>
                         <div class="input-group mb-3">
                             <input type="password" id="password" class="form-control" name="password" placeholder="Introduce tu contraseña">
-                            <div class="input-group-append">
-                                <button id= "hide-password" class="btn btn-outline-secondary" onclick="showPassword('password', 'hide-password')" type="button">Mostrar</button>
+                            <div class="input-group-append ">
+                                <button id= "hide-password" class="btn btn-outline-secondary text-white" onclick="showPassword('password', 'hide-password')" type="button">Mostrar</button>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary" name="login" >Login</button>

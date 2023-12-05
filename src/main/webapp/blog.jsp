@@ -9,6 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/d1e7beaa21.js" crossorigin="anonymous"></script>
         <title>Blog</title>
@@ -16,6 +19,7 @@
     <body class="bg-image" 
           style="background-image: url('https://www.cleanlink.com/resources/editorial/2022/28810-gaming-sstock-1925516489.jpg');
           height: 100vh" >
+        <% HttpSession sesion = request.getSession(); %>
         <div class="container mt-5">
             <h1 class="text-center text-white">Blog</h1>
         </div>
@@ -88,8 +92,12 @@
                                         <th></th>
                                         <th></th>
                                         <th scope="col"  >
+                                            <a href="home.jsp" target="_blank"><i class="fa-solid fa-blog" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i></a>
+                                            <% if (sesion.getAttribute("admin").equals(true)) {%>
                                             <a href="createBlog.jsp"><i class="fa-solid fa-plus" aria-hidden="true"></i></a>
                                         </th>
+                                        <% } else { %>
+                                        <% }%>
                                     </tr>
                                     <tr>
                                         <th scope="col">Id</th>

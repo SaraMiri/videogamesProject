@@ -48,14 +48,14 @@
                             <input type="date" placeholder="YYYY-MM-DD" class="form-control" id="fecha"  value="<%= date%>"  name="fecha" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="accesible">Indica si tiene contenido sobre accesibilidad<</label>                   
+                            <label for="accesible">Indica si tiene contenido sobre accesibilidad</label>                   
                             <select id="accesible" name="accesible" required="required" value="<%= boolAccesible%>">
                                 <option value= 1 >Con contenido de accesibilidad</option>
                                 <option selected value= 0 >Sin contenido de accesibilidad</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="LGTBI">Indica si tiene contenido LGTBIo</label>                   
+                            <label for="LGTBI">Indica si tiene contenido LGTBI</label>                   
                             <select id="LGTBI" name="LGTBI" required="required" value="<%= boolLGTBI%>">
                                 <option value= 0  >No incluye contenido LGTBI</option>
                                 <option value= 1 selected>Sí incluye contenido LGTBI</option>

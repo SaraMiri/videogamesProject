@@ -16,7 +16,7 @@
         <title>Editar videojuego</title>
     </head>
     <body class="bg-image text-white" 
-          style="background-image: url('https://www.cleanlink.com/resources/editorial/2022/28810-gaming-sstock-1925516489.jpg');
+          style="background-image: url('Images/mario-3788492_1920.png');
           height: 100vh">
         <%
             String id = request.getParameter("id");

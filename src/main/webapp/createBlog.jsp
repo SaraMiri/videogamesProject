@@ -31,7 +31,7 @@
                             <label for="fecha">Fecha de publicación</label>
                             <input type="date" placeholder="yyyy-mm-dd" class="form-control" id="fecha" name="fecha" required="required">
                         </div>
-                        <div class="form-group">
+                         <div class="form-group">
                             <label for="accesible">Indica si tiene contenido sobre accesibilidad</label>                   
                             <select id="accesible" name="accesible" required="required">
                                 <option value= 1 >Con contenido de accesibilidad</option>

@@ -16,7 +16,7 @@
         <title>Videojuegos accesibles y LGTBI</title>
     </head>
     <body class="bg-image" 
-          style="background-image: url('https://www.cleanlink.com/resources/editorial/2022/28810-gaming-sstock-1925516489.jpg');
+          style="background-image: url('Images/mario-3788492_1920.png');
           height: 100vh" >
         <% HttpSession sesion = request.getSession(); %>
         <div class="container mt-5">
@@ -65,7 +65,7 @@
                                     Reproducir audio:  &nbsp;<input type="checkbox">
                                 </div>
                                 <!-- Cierre del modal --> 
-                               <div class="modal-footer">
+                                <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                                 </div>
                             </div>
@@ -92,9 +92,10 @@
                                         <th></th>
                                         <th></th>
                                         <th></th>
-                                        <% if (sesion.getAttribute("admin").equals(true)) { %>
+
                                         <th scope="col"  >
-                                              <a href="blog.jsp" target="_blank"><i class="fa-solid fa-blog" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i></a>
+                                            <a href="blog.jsp" target="_blank"><i class="fa-solid fa-blog" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i></a>
+                                            <% if (sesion.getAttribute("admin").equals(true)) { %>
                                             <a href="create.jsp"><i class="fa-solid fa-plus" aria-hidden="true"></i></a>
                                         </th>
                                         <% } else { %>

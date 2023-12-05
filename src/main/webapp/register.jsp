@@ -11,7 +11,7 @@
         <script src="https://kit.fontawesome.com/d1e7beaa21.js" crossorigin="anonymous"></script>
         <title>Registro de usuario</title>
     </head>
-    <body class="bg-light text-dark">
+    <body class="bg-light text-dark" style="background-image: url('Images/gamer-6022003_1920.png')">
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">

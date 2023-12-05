@@ -62,14 +62,15 @@ public class Noticias extends HttpServlet {
                     out.print("<tr>"
                             + "<th scope=\"row\">" + rs.getString(1) + "</th>"
                             + "<td>" + rs.getString(2) + "</td>"
-                            + "<td class=\"text-center\">" + rs.getDate(4) + "</td>"
+                            + "<td style=\"padding: 12px 0\">" + rs.getDate(4) + "</td>"
                             + "<td class=\"text-center\">" + rs.getBoolean(5) + "</td>"
                             + "<td class=\"text-center\">" + rs.getBoolean(6) + "</td>"
                             + "<td class=\"text-center\">"
-                            + ((sesion.getAttribute("admin").equals(true))
-                                ? "  <a href=\"editBlog.jsp?id=" + rs.getString(1) + "&titular=" + rs.getString(2) + "&contenido=" + rs.getString(3) + "&fecha=" + rs.getDate(4) + "&accesible=" + rs.getBoolean(5) + "&LGTBI=" + rs.getBoolean(6) + "\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></a>"
+                            + ((sesion.getAttribute("admin").equals(true)) ?
+                             "  <a href=\"editBlog.jsp?id=" + rs.getString(1) + "&titular=" + rs.getString(2) + "&contenido=" + rs.getString(3) + "&fecha=" + rs.getDate(4) + "&accesible=" + rs.getBoolean(5) + "&LGTBI=" + rs.getBoolean(6) + "\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></a>"
                             + "  <a href=\"deleteBlog.jsp?id=" + rs.getString(1) + "\" class=\"ml-1\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></a>"
-                            : "<a><i class=\"fa-solid fa-eye\" aria-hidden=\"true\"></i></a>")
+                            : "")
+                              +      "&nbsp;&nbsp;<a href=\"viewBlog.jsp?id=" + rs.getString(1) + "&titular=" + rs.getString(2) + "&contenido=" + rs.getString(3) + "&fecha=" + rs.getDate(4) + "&accesible=" + rs.getBoolean(5) + "&LGTBI=" + rs.getBoolean(6) +"\"><i class=\"fa-solid fa-eye\" aria-hidden=\"true\"></i></a>"
                             + "</td>"
                             + "</tr>"
                     );
