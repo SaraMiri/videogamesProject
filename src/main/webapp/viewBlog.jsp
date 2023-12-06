@@ -38,7 +38,7 @@
                             <h1 id="titular" name="titular"><%= title%>&nbsp;&nbsp;<a href="blog.jsp" class="btn btn-primary">Volver al catálogo <i class="" aria-hidden="true"></i></a></h1>
                             <h6 style= "font-style: italic;" id="fecha" name="fecha"><%= date%></h6>
                             <p id="contenido" name="contenido"><%= content%></p>
-                            <img src="Images/<%= id%>.png" alt="Imagen de Pacman"></</img>
+                            <img src="Images/<%= id%>.png" alt="Imagen videojuego"></</img>
                         </div>
                     </form>
                 </div>

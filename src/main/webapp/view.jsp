@@ -51,7 +51,7 @@
                         </div>
                         <div class="form-group">
                             <label class= "text-dark" for="detalles">Otros detalles sobre el juego:</label><br>
-                            <p id="detalles" name="detalles">Añadir información aquí</p>
+                            <p id="detalles" name="detalles">Información extra</p>
                         </div>
                         <a href="home.jsp" class="btn btn-primary">Volver al catálogo<i class="" aria-hidden="true"></i></a>
                     </form>
