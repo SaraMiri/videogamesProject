@@ -17,7 +17,7 @@
         <title>Blog</title>
     </head>
     <body class="bg-image" 
-          style="background-image: url('https://www.cleanlink.com/resources/editorial/2022/28810-gaming-sstock-1925516489.jpg');
+          style="background-image: url('Images/marioBlue.png');
           height: 100vh" >
         <% HttpSession sesion = request.getSession(); %>
         <div class="container mt-5">
@@ -92,7 +92,7 @@
                                         <th></th>
                                         <th></th>
                                         <th scope="col"  >
-                                            <a href="home.jsp" target="_blank"><i class="fa-solid fa-blog" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i></a>
+                                            <a href="home.jsp" target="_blank"><i class="fa-solid fa-gamepad" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i></a>
                                             <% if (sesion.getAttribute("admin").equals(true)) {%>
                                             <a href="createBlog.jsp"><i class="fa-solid fa-plus" aria-hidden="true"></i></a>
                                         </th>

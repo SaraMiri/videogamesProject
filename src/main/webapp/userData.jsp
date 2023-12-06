@@ -16,7 +16,7 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <title>Usuario</title>
     </head>
-    <body class="bg-light text-dark" style="background-image: url('Images/gamer-6022003_1920.png')">
+    <body class="bg-light text-white" style="background-image: url('Images/Mario_2.png')">
         <%
             HttpSession sesion = request.getSession();
             if (sesion.getAttribute("logueado") == null || sesion.getAttribute("logueado").equals("0")) {
@@ -39,13 +39,13 @@
                         <div class="input-group mb-3">
                             <input type="password" id = "password" class="form-control" name="password1" placeholder="Contraseña">
                             <div class="input-group-append">
-                                <button id= "hide-password" class="btn btn-outline-secondary" onclick="showPassword('password','hide-password')" type="button">Mostrar</button>
+                                <button id= "hide-password" class="btn btn-primary" onclick="showPassword('password','hide-password')" type="button">Mostrar</button>
                             </div>
                         </div>
                         <label >Repita su contraseña</label> 
                         <div class="input-group mb-3">
                             <input type="password" id = "passwordRepeat" class="form-control" name="repeatpassword" placeholder="Repita su contraseña">
-                            <button id= "hide-password2" class="btn btn-outline-secondary" onclick="showPassword('passwordRepeat','hide-password2')" type="button">Mostrar</button>
+                            <button id= "hide-password2" class="btn btn-primary" onclick="showPassword('passwordRepeat','hide-password2')" type="button">Mostrar</button>
                         </div>
                         <button type="submit" name="guardar" class="btn btn-primary">Guardar</button>
                         <a href="home.jsp" class="btn btn-danger">Cancelar</a>

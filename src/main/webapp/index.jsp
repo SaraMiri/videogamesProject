@@ -17,7 +17,7 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <title>Login</title>
     </head>
-    <body class="bg-light text-white" style="background-image: url('Images/mario-3788492_1920.png')">
+    <body class="bg-light text-white" style="background-image: url('Images/mario-3788492_1920.png');">
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">

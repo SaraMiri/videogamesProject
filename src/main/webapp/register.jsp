@@ -11,7 +11,7 @@
         <script src="https://kit.fontawesome.com/d1e7beaa21.js" crossorigin="anonymous"></script>
         <title>Registro de usuario</title>
     </head>
-    <body class="bg-light text-dark" style="background-image: url('Images/gamer-6022003_1920.png')">
+    <body class="bg-light text-white" style="background-image: url('Images/Mario_2.png')">
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
@@ -25,13 +25,13 @@
                         <div class="input-group mb-3">
                             <input type="password" id = "password" class="form-control" name="password" placeholder="Introduzca la contraseña">
                             <div class="input-group-append">
-                                <button id= "hide-password" class="btn btn-outline-secondary" onclick="showPassword('password', 'hide-password')" type="button">Mostrar</button>
+                                <button id= "hide-password" class="btn btn-primary" onclick="showPassword('password', 'hide-password')" type="button">Mostrar</button>
                             </div>
                         </div>
                         <label >Repita su contraseña</label> 
                         <div class="input-group mb-3">
                             <input type="password" id = "passwordRepeat" class="form-control" name="repeatpassword" placeholder="Repita su contraseña">
-                            <button id= "hide-password2" class="btn btn-outline-secondary" onclick="showPassword('passwordRepeat', 'hide-password2')" type="button">Mostrar</button>
+                            <button id= "hide-password2" class="btn btn-primary" onclick="showPassword('passwordRepeat', 'hide-password2')" type="button">Mostrar</button>
                         </div>
                         <button type="submit" name="enviar" class="btn btn-primary">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                         <a href="index.jsp" class="btn btn-danger">Cancelar <i class="fa fa-ban" aria-hidden="true"></i></a>
