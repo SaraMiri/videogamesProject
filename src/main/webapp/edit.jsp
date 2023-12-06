@@ -11,6 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="favicon.ico"> 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <title>Editar videojuego</title>
@@ -46,7 +47,7 @@
                             <label for="fecha">Año</label>
                             <input type="text" class="form-control" id="fecha"  value="<%= year%>"  name="fecha" placeholder="Fecha" required="required">
                         </div>
-                          <div class="form-group">
+                        <div class="form-group">
                             <label for="url">Url de la web</label>
                             <input type="text" class="form-control" id="url"  value="<%= url%>"  name="url" placeholder="Url de la web">
                         </div>
@@ -78,7 +79,7 @@
                                 Class.forName("com.mysql.jdbc.Driver");
                                 con = DriverManager.getConnection("jdbc:mysql://localhost/videogames?user=root");
                                 st = con.createStatement();
-                                st.executeUpdate("update videojuegos set nombre='" + name + "',empresa='" + company+ "',url='" + url + "',fecha='" + year + "',accesible='" + accesible + "',LGTBI='" + LGTBI + "' where id='" + id + "';");
+                                st.executeUpdate("update videojuegos set nombre='" + name + "',empresa='" + company + "',url='" + url + "',fecha='" + year + "',accesible='" + accesible + "',LGTBI='" + LGTBI + "' where id='" + id + "';");
                                 out.print(" <div class=\"alert alert-success mt-2\" role=\"alert\"> Registro modificado correctamente </div>");
                             } catch (Exception e) {
                                 out.print(e);

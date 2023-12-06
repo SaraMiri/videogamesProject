@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
 import com.mysql.jdbc.Driver;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
@@ -55,6 +57,7 @@ public class Noticias extends HttpServlet {
                     titular = this.scape_string(titular);
                     where = where + " and titular LIKE'%" + titular + "%'";
                 }
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
                 String admin = request.getParameter("admin");
                 query = query + where;
                 rs = st.executeQuery(query);
@@ -62,7 +65,7 @@ public class Noticias extends HttpServlet {
                     out.print("<tr>"
                             + "<th scope=\"row\">" + rs.getString(1) + "</th>"
                             + "<td>" + rs.getString(2) + "</td>"
-                            + "<td style=\"padding: 12px 0\">" + rs.getDate(4) + "</td>"
+                            + "<td style=\"padding: 12px 0\">" + df.format(rs.getDate(4)) + "</td>"
                             + "<td class=\"text-center\">" + rs.getBoolean(5) + "</td>"
                             + "<td class=\"text-center\">" + rs.getBoolean(6) + "</td>"
                             + "<td class=\"text-center\">"

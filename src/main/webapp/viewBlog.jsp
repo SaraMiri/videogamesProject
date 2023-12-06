@@ -4,6 +4,7 @@
     Author     : saram
 --%>
 
+<%@page import="java.text.DateFormat"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.*"%>
 <%@page import="com.mysql.jdbc.Driver"%>
@@ -12,6 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="favicon.ico"> 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <title>Ver noticia</title>
@@ -23,8 +25,10 @@
             String id = request.getParameter("id");
             String title = request.getParameter("titular");
             String content = request.getParameter("contenido");
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             String date = request.getParameter("fecha");
-            //  new SimpleDateFormat("dd-MM-yyyy").parse(date);
+            //Date datingDate = df.format(date);
+            //Date StartTime = new Date(df.parse(date).getTime());
             String accesible = request.getParameter("accesible");
             boolean boolAccesible = Boolean.parseBoolean(accesible);
             String LGTBI = request.getParameter("LGTBI");
@@ -36,7 +40,7 @@
                     <form action="viewBlog.jsp" method="get">
                         <div class="form-group">
                             <h1 id="titular" name="titular"><%= title%>&nbsp;&nbsp;<a href="blog.jsp" class="btn btn-primary">Volver al catálogo <i class="" aria-hidden="true"></i></a></h1>
-                            <h6 style= "font-style: italic;" id="fecha" name="fecha"><%= date%></h6>
+                            <h6 style= "font-style: italic;" id="fecha" name="fecha"><%=date%></h6>
                             <p id="contenido" name="contenido"><%= content%></p>
                             <img src="Images/<%= id%>.png" alt="Imagen videojuego"></</img>
                         </div>

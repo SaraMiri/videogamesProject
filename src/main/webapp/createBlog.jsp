@@ -7,6 +7,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="favicon.ico"> 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/d1e7beaa21.js" crossorigin="anonymous"></script>
         <title>Crear noticia</title>
@@ -31,7 +32,7 @@
                             <label for="fecha">Fecha de publicación</label>
                             <input type="date" placeholder="yyyy-mm-dd" class="form-control" id="fecha" name="fecha" required="required">
                         </div>
-                         <div class="form-group">
+                        <div class="form-group">
                             <label for="accesible">Indica si tiene contenido sobre accesibilidad</label>                   
                             <select id="accesible" name="accesible" required="required">
                                 <option value= 1 >Con contenido de accesibilidad</option>

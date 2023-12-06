@@ -13,6 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="favicon.ico"> 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <title>Login</title>
@@ -21,7 +22,10 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
-                    <h2 class="text-center">Área de login</h2>
+                    <div class="column text-center">
+                        <h2 class="text-center">Área de login</h2><br>
+                        <img class="rounded img-thumbnail" src="Images/Inclusive Games white.jpg" style= "width: 120px" alt="Logo Inclusive Games"></</img></div>&nbsp;
+               
                     <form method="post" action="index.jsp" >
                         <div class="form-group">
                             <label>Usuario</label>
@@ -31,7 +35,7 @@
                         <div class="input-group mb-3">
                             <input type="password" id="password" class="form-control" name="password" placeholder="Introduce tu contraseña">
                             <div class="input-group-append ">
-                                <button id= "hide-password" class="btn btn-outline-secondary text-white" onclick="showPassword('password', 'hide-password')" type="button">Mostrar</button>
+                                <button id= "hide-password" class="btn btn-primary text-white" onclick="showPassword('password', 'hide-password')" type="button">Mostrar</button>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary" name="login" >Login</button>
