@@ -4,7 +4,7 @@
     Author     : saram
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="latin1"%>
 <!DOCTYPE html>
 <html>
     <head>

@@ -72,7 +72,6 @@
                     </form>
                     <%
                         if (request.getParameter("enviar") != null) {
-
                             try {
                                 Connection con = null;
                                 Statement st = null;
