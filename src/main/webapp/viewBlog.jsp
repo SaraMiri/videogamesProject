@@ -4,6 +4,9 @@
     Author     : saram
 --%>
 
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.time.LocalDateTime"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.*"%>
@@ -25,10 +28,13 @@
             String id = request.getParameter("id");
             String title = request.getParameter("titular");
             String content = request.getParameter("contenido");
-            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             String date = request.getParameter("fecha");
-            //Date datingDate = df.format(date);
-            //Date StartTime = new Date(df.parse(date).getTime());
+            String day, month = null, year = null, finalDate;
+            String[] divide = date.split("-");
+            year = divide[0];
+            month = divide[1];
+            day = divide[2];
+            finalDate = day + "-" + month + "-" + year;
             String accesible = request.getParameter("accesible");
             boolean boolAccesible = Boolean.parseBoolean(accesible);
             String LGTBI = request.getParameter("LGTBI");
@@ -40,7 +46,7 @@
                     <form action="viewBlog.jsp" method="get">
                         <div class="form-group">
                             <h1 id="titular" name="titular"><%= title%>&nbsp;&nbsp;<a href="blog.jsp" class="btn btn-primary">Volver al catálogo <i class="" aria-hidden="true"></i></a></h1>
-                            <h6 style= "font-style: italic;" id="fecha" name="fecha"><%=date%></h6>
+                            <h6 style= "font-style: italic;" id="fecha" name="fecha"><%=finalDate%></h6>
                             <p id="contenido" name="contenido"><%= content%></p>
                             <img src="Images/<%= id%>.png" alt="Imagen videojuego"></</img>
                         </div>
